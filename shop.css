@@ -1,0 +1,127 @@
+.port-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.veg-box {
+    width: 200px;
+    padding: 10px;
+    background-color:eaf8e6;
+    border: 4px solid  rgb(7, 123, 44);
+    border-radius: 15px;
+    text-align: center;
+    margin: 30px auto;
+    transition: 0.3s;
+}
+
+.veg-box img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    
+}
+
+.veg-box a {
+    text-decoration: none;
+    color: #333;
+}
+
+.veg-box:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+.veg-box h2{
+    text-align: center;
+    color: rgb(42, 104, 6);
+    text-transform: uppercase;
+}
+.fru-box{
+    width: 200px;
+    padding: 10px;
+    background-color:eaf8e6;
+    border: 4px solid  rgb(7, 123, 44);
+    border-radius: 15px;
+    text-align: center;
+    margin: 30px auto;
+    transition: 0.3s;
+}
+.fru-box img{
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+}
+.fru-box a{
+    text-decoration: none;
+    color: #333;
+}
+.fru-box:hover{
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+.fru-box h2{
+    text-align: center;
+    color: rgb(42, 104, 6);
+    text-transform: uppercase;
+}
+.prt-container{
+    display:flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+.snk-box{
+    width: 200px;
+    padding: 10px;
+    background-color:eaf8e6;
+    border: 4px solid  rgb(7, 123, 44);
+    border-radius: 15px;
+    text-align:center;
+    margin: 30px auto;
+    transition: 0.3s;
+}
+.snk-box img{
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+}
+.snk-box a{
+    text-decoration: none;
+    color: #333;
+}
+.snk-box:hover{
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+.snk-box h2{
+    text-transform: uppercase;
+    color:rgb(42, 104, 6) ;
+}
+.cd-box{
+    width: 200px;
+    padding: 10px;
+    background-color: eaf8e6;
+    border: 4px solid rgb(7, 123, 44);
+    border-radius: 15px;
+    text-align: center;
+    margin: 30px auto;
+    transition: 0.3s;
+}
+.cd-box img{
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+}
+.cd-box a{
+    text-decoration: none;
+    color: #333;
+}
+.cd-box:hover{
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+.cd-box h2{
+    text-transform: uppercase;
+    color: rgb(42, 104, 6);
+}

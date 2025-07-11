@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order History - EasyGrocery</title>
+    <style>
+        body { background-color: #d4edda; font-family: Arial, sans-serif; text-align: center; }
+        .order-card { margin: 15px auto; width: 350px; background: #c1e6c1; padding: 15px; border-radius: 10px; border: 2px solid #7ab67a; }
+        .btn { padding: 8px 12px; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; margin: 5px; }
+        .cancel-btn { background-color: coral; color: white; }
+        .view-btn { background-color: orange; color: white; }
+    </style>
+</head>
+<body>
+    <h1>Order History</h1>
+    <div id="ordersContainer"></div>
+    <script>
+        let orders = JSON.parse(localStorage.getItem("orders")) || [];
+        const container = document.getElementById("ordersContainer");
+        if (orders.length === 0) {
+            container.innerHTML = "<p>No orders found.</p>";
+        } else {
+            orders.forEach((order, index) => {
+                const card = document.createElement("div");
+                card.className = "order-card";
+                card.innerHTML = `
+                    <strong>${order.name}</strong><br>
+                    ${order.time}<br>
+                    <button class="btn view-btn" onclick="viewDetails(${index})">View Details</button>
+                    <button class="btn cancel-btn" onclick="cancelOrder(${index})">Cancel Order</button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function viewDetails(index) {
+            const order = orders[index];
+            alert(`Name: ${order.name}\nQty: ${order.qty}\nPrice: ₹${order.price}\nTotal: ₹${order.total}`);
+        }
+
+        function cancelOrder(index) {
+            if (confirm("Do you want to cancel this order?")) {
+                orders.splice(index, 1);
+                localStorage.setItem("orders", JSON.stringify(orders));
+                localStorage.setItem("cartCount", orders.length);
+                location.reload();
+            }
+        }
+    </script>
+</body>
+</html>

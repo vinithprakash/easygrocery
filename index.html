@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyGrocery Shop</title>
+    <link rel="stylesheet" href="shop.css">
+    <style>
+        body {
+            background-color: #d4edda;
+        }
+
+        #top {
+            background-color: #c5e384;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-section img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .logo-section span {
+            font-size: 24px;
+            font-weight: bold;
+            color: rgb(7, 123, 44);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: rgb(49, 113, 176);
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .nav-links a:hover {
+            background-color: white;
+            color: red;
+            padding: 3px 5px;
+            border-radius: 3px;
+            transition: 1s;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-style: oblique;
+            font-weight: 600;
+            color: rgb(7, 123, 44);
+        }
+
+        /* Cart Style */
+        .cart-link {
+            background-color: rgb(255, 204, 128);
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .cart-link:hover {
+            background-color: orange;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="top">
+        <div class="logo-section">
+            <img src="/img/gs.jpeg" alt="">
+            <span>EasyGrocery</span>
+        </div>
+        <div class="nav-links">
+            <a href="#">Contact</a>
+            <a href="#">Service</a>
+            <a href="#">About</a>
+            <a href="order_history.html" class="cart-link">
+                🛒 Cart <span id="cartCount">0</span>
+            </a>
+        </div>
+    </div>
+
+    <center><h1>EasyGrocery</h1></center>
+
+    <div class="port-container">
+        <div class="veg-box">
+            <a href="vegetable.html">
+                <h2>Vegetable</h2>
+                <center><img src="/veg.jpeg" alt=""></center>
+            </a>
+        </div>
+        <div class="fru-box">
+            <a href="fruit.html">
+                <h2>Fruits</h2>
+                <center><img src="/fruit.jpeg" alt=""></center>
+            </a>
+        </div>
+    </div>
+
+    <div class="prt-container">
+        <div class="snk-box">
+            <a href="snacks.html">
+                <h2>Snacks</h2>
+                <center><img src="/snack.jpeg" alt=""></center>
+            </a>
+        </div>
+        <div class="cd-box">
+            <a href="cooldrink.html">
+                <h2>Cooldrinks</h2>
+                <center><img src="/cooldrink.jpeg" alt=""></center>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Load Cart Count from LocalStorage
+        let cartCount = localStorage.getItem("cartCount") || 0;
+        document.getElementById("cartCount").innerText = cartCount;
+    </script>
+</body>
+</html>

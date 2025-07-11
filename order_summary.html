@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Summary - EasyGrocery</title>
+    <style>
+        body { background-color: #d4edda; font-family: Arial, sans-serif; text-align: center; }
+        .summary-box { margin: 30px auto; width: 300px; background: #c1e6c1; padding: 20px; border-radius: 10px; border: 2px solid #7ab67a; }
+        .btn { padding: 10px 15px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; background-color: orange; color: white; }
+    </style>
+</head>
+<body>
+    <h1>Order Summary</h1>
+    <div class="summary-box">
+        <p>Order Placed Successfully!</p>
+        <button class="btn" onclick="goToCart()">Go to Cart</button>
+    </div>
+    <script>
+        function goToCart() { window.location.href = 'order_history.html'; }
+    </script>
+</body>
+</html>

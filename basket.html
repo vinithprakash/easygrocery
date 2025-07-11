@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basket - EasyGrocery</title>
+    <style>
+        body { background-color: #d4edda; font-family: Arial, sans-serif; text-align: center; }
+        .product-box { margin: 30px auto; width: 300px; background: #c1e6c1; padding: 20px; border-radius: 10px; border: 2px solid #7ab67a; }
+        img { width: 150px; border-radius: 8px; }
+        .product-name { font-size: 24px; font-weight: bold; margin: 10px 0; }
+        .product-price { font-size: 18px; margin-bottom: 10px; }
+        input[type="number"] { padding: 5px; width: 100px; border-radius: 5px; border: 1px solid #999; }
+        .total-price { font-size: 20px; font-weight: bold; color: darkgreen; margin: 10px 0; }
+        .btn { padding: 10px 15px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; margin: 5px; }
+        .place-btn { background-color: orange; color: white; }
+        .cancel-btn { background-color: coral; color: white; }
+    </style>
+</head>
+<body>
+    <h1>EasyGrocery Basket</h1>
+    <div class="product-box">
+        <img id="productImage" src="" alt="Product Image">
+        <div class="product-name" id="productName"></div>
+        <div class="product-price" id="productPrice"></div>
+        <label>Enter Quantity:</label><br>
+        <input type="number" id="kgInput" min="1" value="1" oninput="calculate()"><br>
+        <div class="total-price" id="totalPrice"></div>
+        <button class="btn place-btn" id="placeOrderBtn">Place Order</button>
+        <button class="btn cancel-btn" onclick="goBack()">Cancel</button>
+    </div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get("name");
+        const price = parseFloat(params.get("price"));
+        const image = params.get("image");
+        document.getElementById("productImage").src = image;
+        document.getElementById("productName").innerText = name;
+        document.getElementById("productPrice").innerText = `₹${price} per unit`;
+        function calculate() {
+            let kg = parseFloat(document.getElementById("kgInput").value);
+            let total = kg * price;
+            document.getElementById("totalPrice").innerText = `Total Price: ₹${total}`;
+        }
+        calculate();
+        document.getElementById("placeOrderBtn").addEventListener("click", () => {
+            const qty = parseFloat(document.getElementById("kgInput").value);
+            const total = (qty * price).toFixed(2);
+            let orders = JSON.parse(localStorage.getItem("orders")) || [];
+            orders.push({
+                name: name,
+                price: price,
+                qty: qty,
+                total: total,
+                image: image,
+                time: new Date().toLocaleString()
+            });
+            localStorage.setItem("orders", JSON.stringify(orders));
+            localStorage.setItem("cartCount", orders.length);
+            window.location.href = 'order_summary.html';
+        });
+        function goBack() { window.history.back(); }
+    </script>
+</body>
+</html>
